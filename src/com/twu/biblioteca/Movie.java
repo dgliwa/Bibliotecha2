@@ -42,5 +42,27 @@ public class Movie {
         checkout = true;
     }
 
+    public String moviesToString(){
+        String temp = "";
+
+            temp += outputOneLine(getTitle()) + "|  ";
+            temp += outputOneLine(getDirector()) + "|  ";
+            temp += Integer.toString(getYear()) + " | ";
+            temp += Integer.toString(getRating()) + "\n";
+
+        return temp;
+    }
+
+    private String outputOneLine(String str) {
+
+        int lengthOfString;
+        if(str.length() >= 40) {
+            lengthOfString = 40;
+        } else {
+            lengthOfString = str.length();
+        }
+        return String.format("%-40s", str.substring(0, lengthOfString));
+    }
+
 
 }

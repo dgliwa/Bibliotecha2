@@ -22,42 +22,12 @@ public class Library {
         this.movieList = movieList;
     }
 
-  public String booksToString(){
-    String temp = "";
-    for(Book book : bookList.values()){
-        if(book.isCheckedOut()) continue;
-        temp += outputOneLine(book.getTitle()) + "|  ";
-        temp += outputOneLine(book.getAuthor()) + "|  ";
-        temp += Integer.toString(book.getYear()) + "\n";
-    }
-    return temp;
-  }
-
-
-    public String moviesToString(){
-        String temp = "";
-        for(Movie movie : movieList.values()){
-            temp += outputOneLine(movie.getTitle()) + "|  ";
-            temp += outputOneLine(movie.getDirector()) + "|  ";
-            temp += Integer.toString(movie.getYear()) + " | ";
-            temp += Integer.toString(movie.getRating()) + "\n";
-        }
-        return temp;
-    }
-
-  private String outputOneLine(String str) {
-
-    int lengthOfString;
-    if(str.length() >= 40) {
-      lengthOfString = 40;
-    } else {
-      lengthOfString = str.length();
-    }
-    return String.format("%-40s", str.substring(0, lengthOfString));
-  }
-
     public void displayBooks() {
-        printStream.println(this.booksToString());
+        for (Book book : bookList.values()) {
+            if(!book.isCheckedOut()) {
+                printStream.println(book.booksToString());
+            }
+        }
     }
 
     public void checkOutBook() throws IOException {
@@ -93,7 +63,9 @@ public class Library {
     }
 
     public void displayMovies() {
-        printStream.println(this.moviesToString());
+        for(Movie movie: movieList.values()) {
+            printStream.println(movie.moviesToString());
+        }
     }
 
     public void checkOutMovie() throws IOException {

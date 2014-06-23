@@ -26,14 +26,14 @@ public class TestMovieList {
     }
 
     @Test
-    public void testListBooks(){
+    public void testListMovies(){
         BufferedReader reader = mock(BufferedReader.class);
         PrintStream printStream = mock(PrintStream.class);
         Map<String, Book> bookList = mock(Map.class);
         Library library = new Library(printStream,reader,bookList, movieList);
 
         library.displayMovies();
-        verify(printStream).println("The Shining                             |  Stanley Kubrick                         |  1980 | 8\n"+
-                "Pulp Fiction                            |  Quentin Tarantino                       |  1994 | 9\n");
+        verify(printStream).println("The Shining                             |  Stanley Kubrick                         |  1980 | 8\n");
+        verify(printStream).println("Pulp Fiction                            |  Quentin Tarantino                       |  1994 | 9\n");
     }
 }

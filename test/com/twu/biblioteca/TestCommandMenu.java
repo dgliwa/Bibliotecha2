@@ -78,8 +78,8 @@ public class TestCommandMenu {
 
         String userCommand = commandMenu.promptUser();
         commandMenu.executeCommand(userCommand);
-        verify(printStream).println("The Shining                             |  Stephen King                            |  1970\n" +
-                "Harry Potter                            |  JK Rowling                              |  1995\n");
+        verify(printStream).println("The Shining                             |  Stephen King                            |  1970\n");
+        verify(printStream).println("Harry Potter                            |  JK Rowling                              |  1995\n");
     }
 
     @Test

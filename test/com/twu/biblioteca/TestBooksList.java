@@ -34,8 +34,8 @@ public class TestBooksList {
         Library library = new Library(printStream,reader,bookList, movieList);
 
         library.displayBooks();
-        verify(printStream).println("The Shining                             |  Stephen King                            |  1970\n" +
-                "Harry Potter                            |  JK Rowling                              |  1995\n");
+        verify(printStream).println("The Shining                             |  Stephen King                            |  1970\n");
+        verify(printStream).println("Harry Potter                            |  JK Rowling                              |  1995\n");
     }
 
 }
