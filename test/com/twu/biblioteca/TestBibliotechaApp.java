@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,16 +14,30 @@ import static org.mockito.Mockito.when;
  */
 public class TestBibliotechaApp {
 
+    private CommandMenu commandMenu;
+    private BibliotechaApp bibliotechaApp;
+
+    @Before
+    public void setUp() throws IOException {
+        commandMenu = mock(CommandMenu.class);
+        bibliotechaApp = new BibliotechaApp(commandMenu);
+
+    }
     @Test
     public void testLibraryStartCallsWelcomeAndMenu() throws IOException {
-        CommandMenu commandMenu = mock(CommandMenu.class);
         when(commandMenu.promptUser()).thenReturn("list");
         when(commandMenu.executeCommand("list")).thenReturn(true);
-        BibliotechaApp bibliotechaApp = new BibliotechaApp(commandMenu);
         bibliotechaApp.start();
+
         verify(commandMenu).displayWelcome();
         verify(commandMenu).listOptions();
         verify(commandMenu).promptUser();
         verify(commandMenu).executeCommand("list");
+    }
+
+    @Test
+    public void shouldPromptUserforLogIn() {
+        verify(commandMenu).userLoginIn();
+
     }
 }

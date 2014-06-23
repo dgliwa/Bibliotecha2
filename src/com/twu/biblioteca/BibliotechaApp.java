@@ -16,6 +16,7 @@ public class BibliotechaApp {
 
     public void start() throws IOException {
         commandMenu.displayWelcome();
+
         commandMenu.listOptions();
 
         String userCommand = commandMenu.promptUser();

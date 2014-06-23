@@ -20,10 +20,8 @@ public class Main {
         Library library = new Library(System.out, reader, bookList, movieList);
 
         HashMap<String,Command> commands = new HashMap<String, Command>();
-        Command listBooksCommand = new ListBooksCommand(library);
-        Command listMoviesCommand = new ListMoviesCommand(library);
-        commands.put("list books", listBooksCommand);
-        commands.put("list movies", listBooksCommand);
+        commands.put("list books", new ListBooksCommand(library));
+        commands.put("list movies", new ListMoviesCommand(library));
         commands.put("quit", new QuitCommand(System.out));
         commands.put("checkout books", new CheckoutBookCommand(library));
         commands.put("checkout movies", new CheckoutMovieCommand(library));

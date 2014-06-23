@@ -14,11 +14,9 @@ public class ListMoviesCommand implements Command {
 
     @Override
     public boolean execute() {
-        try {
-            library.checkOutMovie();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        library.displayMovies();
+
         return false;
     }
 }

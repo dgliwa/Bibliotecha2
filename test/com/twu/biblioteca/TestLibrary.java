@@ -80,6 +80,7 @@ public class TestLibrary {
         assertThat(book.isCheckedOut(), is(false));
     }
 
+
     @Test
     public void shouldNotDisplayCheckedOutBooks() {
         Library library = new Library(printStream, reader, bookList, movieList);

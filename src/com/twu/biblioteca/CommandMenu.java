@@ -27,22 +27,23 @@ public class CommandMenu {
     }
 
     public String promptUser() throws IOException {
+        printStream.println("Please choose a command.");
         return reader.readLine();
     }
 
     public boolean executeCommand(String command) {
-
-
         if(commands.containsKey(command)){
             return commands.get(command).execute();
         } else {
             printStream.println("Select a valid option");
             return false;
         }
-
     }
 
     public void displayWelcome() {
         printStream.println("Welcome to the library!");
+    }
+
+    public void userLoginIn() {
     }
 }

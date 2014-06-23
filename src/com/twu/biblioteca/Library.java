@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by richiethomas on 6/17/14.
  */
 public class Library {
-    Map<String,Book> bookList;
+    private Map<String,Book> bookList;
 
     private PrintStream printStream;
     private BufferedReader reader;
@@ -44,7 +44,7 @@ public class Library {
     public void returnBook() throws IOException {
         Book book = findBook();
         if (book != null && book.isCheckedOut()) {
-            book.returnBook();
+            book.returnIt();
             printStream.println("Thank you for returning the book");
         }
         else{
@@ -64,7 +64,9 @@ public class Library {
 
     public void displayMovies() {
         for(Movie movie: movieList.values()) {
-            printStream.println(movie.toString());
+            if(!movie.isCheckedOut()) {
+                printStream.println(movie.toString());
+            }
         }
     }
 
@@ -87,4 +89,5 @@ public class Library {
         else
             return null;
     }
+
 }

@@ -25,9 +25,10 @@ public class Book {
         checkedOut = true;
     }
 
-    public void returnBook() {
+    public void returnIt() {
         checkedOut = false;
     }
+
 
     @Override
     public String toString(){
