@@ -53,6 +53,20 @@ public class TestLibrary {
     }
 
     @Test
+    public void shouldRemoveMovieFromMovieListOnCheckout() throws IOException {
+        PrintStream printStream = mock(PrintStream.class);
+        BufferedReader reader = mock(BufferedReader.class);
+        Map<String,Movie> movieList = new HashMap<String,Movie>();
+        Movie movie = new Movie("Pulp Fiction", "Quentin Tarantino", 1990, 9, false);
+        movieList.put("Pulp Fiction", movie);
+        Library library = new Library(printStream,reader,bookList, movieList);
+        when(reader.readLine()).thenReturn("Pulp Fiction");
+        library.checkOutMovie();
+
+        assertThat(movie.isCheckedOut(), is(true));
+    }
+
+    @Test
     public void shouldAddBookToBookListOnReturn() throws IOException {
         PrintStream printStream = mock(PrintStream.class);
         BufferedReader reader = mock(BufferedReader.class);

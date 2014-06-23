@@ -95,4 +95,24 @@ public class Library {
     public void displayMovies() {
         printStream.println(this.moviesToString());
     }
+
+    public void checkOutMovie() throws IOException {
+        Movie movie = findMovie();
+        if (movie != null && !movie.isCheckedOut()) {
+            movie.checkOut();
+            printStream.println("Thank you! Enjoy the movie");
+        } else{
+            printStream.println("That movie is not available.");
+        }
+    }
+
+    private Movie findMovie() throws IOException {
+        printStream.println("What is the title of the movie?");
+        String movieString = reader.readLine();
+
+        if(movieList.containsKey(movieString))
+            return movieList.get(movieString);
+        else
+            return null;
+    }
 }

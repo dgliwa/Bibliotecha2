@@ -21,8 +21,8 @@ public class TestMovieList {
     @Before
     public void setUp(){
         movieList = new HashMap<String,Movie>();
-        movieList.put("Pulp Fiction", new Movie("Pulp Fiction", "Quentin Tarantino", 1994, 9));
-        movieList.put("The Shining", new Movie("The Shining", "Stanley Kubrick", 1980, 8));
+        movieList.put("Pulp Fiction", new Movie("Pulp Fiction", "Quentin Tarantino", 1994, 9, false));
+        movieList.put("The Shining", new Movie("The Shining", "Stanley Kubrick", 1980, 8, false));
     }
 
     @Test

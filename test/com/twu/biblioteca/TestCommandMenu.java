@@ -130,5 +130,12 @@ public class TestCommandMenu {
         returnBookCommand.execute();
         verify(library).returnBook();
     }
-    
+
+    @Test
+    public void shouldReturnMovieCheckOutCommand() throws IOException {
+        Library library = mock(Library.class);
+        Command checkOutMovieCommand = new CheckoutMovieCommand(library);
+        checkOutMovieCommand.execute();
+        verify(library).checkOutMovie();
+    }
 }

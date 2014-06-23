@@ -14,8 +14,8 @@ public class Main {
         bookList.put("Harry Potter", new Book("Harry Potter", "JK Rowling", 1995, false));
         bookList.put("The Shining", new Book("The Shining", "Stephen King", 1970, false));
         Map<String,Movie> movieList = new HashMap<String, Movie>();
-        movieList.put("Pulp Fiction", new Movie("Pulp Fiction", "Quentin Tarantino", 1994, 9));
-        movieList.put("The Shining", new Movie("The Shining", "Stanley Kubrick", 1980, 8));
+        movieList.put("Pulp Fiction", new Movie("Pulp Fiction", "Quentin Tarantino", 1994, 9, false));
+        movieList.put("The Shining", new Movie("The Shining", "Stanley Kubrick", 1980, 8, false));
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Library library = new Library(System.out, reader, bookList, movieList);
 
