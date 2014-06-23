@@ -62,7 +62,7 @@ public class Library {
 
     public void checkOutBook() throws IOException {
         Book book = findBook();
-        if (book != null) {
+        if (book != null && !book.isCheckedOut()) {
             book.checkOut();
             printStream.println("Thank you! Enjoy the book");
         } else{
@@ -73,8 +73,12 @@ public class Library {
 
     public void returnBook() throws IOException {
         Book book = findBook();
-        if (book != null) {
+        if (book != null && book.isCheckedOut()) {
             book.returnBook();
+            printStream.println("Thank you for returning the book");
+        }
+        else{
+            printStream.println("That is not a valid book to return.");
         }
     }
 
