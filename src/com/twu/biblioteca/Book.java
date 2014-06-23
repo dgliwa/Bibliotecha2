@@ -17,18 +17,6 @@ public class Book {
         this.checkedOut = checkedOut;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
     public boolean isCheckedOut() {
         return checkedOut;
     }
@@ -41,24 +29,11 @@ public class Book {
         checkedOut = false;
     }
 
-    public String booksToString(){
-        String temp = "";
-
-            temp += outputOneLine(getTitle()) + "|  ";
-            temp += outputOneLine(getAuthor()) + "|  ";
-            temp += Integer.toString(getYear()) + "\n";
-
-        return temp;
+    @Override
+    public String toString(){
+        String titleString = String.format("%-40s", title.substring(0, title.length()));
+        String authorString = String.format("%-40s", author.substring(0, author.length()));
+        return String.format("%s|  %s|  %d\n", titleString, authorString, year);
     }
 
-    private String outputOneLine(String str) {
-
-        int lengthOfString;
-        if(str.length() >= 40) {
-            lengthOfString = 40;
-        } else {
-            lengthOfString = str.length();
-        }
-        return String.format("%-40s", str.substring(0, lengthOfString));
-    }
 }

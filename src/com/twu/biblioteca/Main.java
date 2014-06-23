@@ -25,7 +25,8 @@ public class Main {
         commands.put("list books", listBooksCommand);
         commands.put("list movies", listBooksCommand);
         commands.put("quit", new QuitCommand(System.out));
-        commands.put("checkout", new CheckoutBookCommand(library));
+        commands.put("checkout books", new CheckoutBookCommand(library));
+        commands.put("checkout movies", new CheckoutMovieCommand(library));
         commands.put("return", new ReturnBookCommand(library));
 
         CommandMenu menu = new CommandMenu(System.out, new BufferedReader(new InputStreamReader(System.in)),

@@ -18,22 +18,6 @@ public class Movie {
         this.checkout = checkout;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
     public boolean isCheckedOut() {
         return checkout;
     }
@@ -42,26 +26,11 @@ public class Movie {
         checkout = true;
     }
 
-    public String moviesToString(){
-        String temp = "";
-
-            temp += outputOneLine(getTitle()) + "|  ";
-            temp += outputOneLine(getDirector()) + "|  ";
-            temp += Integer.toString(getYear()) + " | ";
-            temp += Integer.toString(getRating()) + "\n";
-
-        return temp;
-    }
-
-    private String outputOneLine(String str) {
-
-        int lengthOfString;
-        if(str.length() >= 40) {
-            lengthOfString = 40;
-        } else {
-            lengthOfString = str.length();
-        }
-        return String.format("%-40s", str.substring(0, lengthOfString));
+    @Override
+    public String toString(){
+        String titleString = String.format("%-40s", title.substring(0, title.length()));
+        String directorString = String.format("%-40s", director.substring(0, director.length()));
+        return String.format("%s|  %s|  %d | %d\n", titleString, directorString, year, rating);
     }
 
 

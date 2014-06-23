@@ -25,7 +25,7 @@ public class Library {
     public void displayBooks() {
         for (Book book : bookList.values()) {
             if(!book.isCheckedOut()) {
-                printStream.println(book.booksToString());
+                printStream.println(book.toString());
             }
         }
     }
@@ -64,7 +64,7 @@ public class Library {
 
     public void displayMovies() {
         for(Movie movie: movieList.values()) {
-            printStream.println(movie.moviesToString());
+            printStream.println(movie.toString());
         }
     }
 
